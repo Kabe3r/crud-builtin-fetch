@@ -7,7 +7,7 @@ import Link from "next/link";
 // force-cache: generated as static content
 
 
-async function getProduct() {
+export async function getProduct() {
   const res = await fetch('https://dummyjson.com/products')
   const result = await res.json();
   return result.products as Product[];
@@ -16,7 +16,7 @@ async function getProduct() {
 
 export default async function Products() {
   const product = await getProduct();
-
+ 
   return (
     <>
         <h1 className="text-center my-10 text-4xl">Products</h1>

@@ -10,7 +10,7 @@ export interface Product {
     category: string,
     thumbnail: string,
     images: [string]
-    // params: string
+    params: string
 }
 
 // export interface Product {
