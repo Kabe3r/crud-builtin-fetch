@@ -20,6 +20,7 @@ export default async function Products() {
   return (
     <>
         <h1 className="text-center my-10 text-4xl">Products</h1>
+        <Link href='/'>Go to home</Link>
     <div className="flex flex-wrap gap-4 justify-center">
         {product?.map(product => ((
           <div key={product?.id} className="bg-blue-400 w-48 h-auto text-center">
