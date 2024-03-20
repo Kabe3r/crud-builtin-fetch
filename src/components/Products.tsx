@@ -32,7 +32,7 @@ export default async function Products() {
                 <p>{product?.brand}</p>
                 <p>{product?.category}</p>
                 <Image src={product?.thumbnail} alt="product-img" width={40} height={40} />
-                <Link href={`products/${product?.id}`}>go to single product</Link>
+                <Link href={{ pathname: `products/${product?.id}`}}>go to single product</Link>
         </div>
             )))}
     </div>

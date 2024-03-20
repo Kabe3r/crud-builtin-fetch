@@ -1,3 +1,5 @@
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default function layout({
     login,
@@ -11,6 +13,12 @@ export default function layout({
     children: React.ReactNode
 }) {
     const role: string = 'admin' || 'user'  ;
+    // const getUser = cookies().get('user');
+
+    // if (!getUser) {
+    //     redirect('/login')
+    // }
+
   return (
     <div className="text-2xl text-center mt-10 capitalize">
         <h1>Dashboard Page</h1>

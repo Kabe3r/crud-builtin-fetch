@@ -35,17 +35,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 //  console.log(products)
  return {
   title: products?.title,
-  metadataBase: new URL('http://localhost:3000')
-  // description: products?.description
+  metadataBase: new URL('http://localhost:3000'),
+  description: products?.description
  }
 }
 
 
 export default async function page({ params }: Props ) {
   
-  // console.log(params)
+  console.log(params)
   // const { productId } = params;
   const products = await getSingleProduct(params.product);
+
+
+  
 
   // console.log(productId, product?.id, product.title)
   

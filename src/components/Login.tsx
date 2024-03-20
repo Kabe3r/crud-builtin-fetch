@@ -1,7 +1,9 @@
 'use client'
 
 import { authenticate } from "@/app/lib/actions";
-import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
+import { useRouter } from "next/navigation";
+
 import { useState } from "react"
 // import { useFormState } from "react-dom";
 
@@ -26,10 +28,17 @@ interface Login {
 // }
 
 export default function Login() {
+    // const getUser = cookies().get('user')?.value
     const [formData, setFormData] = useState<Login>({
         username: '',
         password: ''
     })
+    const router = useRouter();
+
+    // // useE
+    // if (getUser) {
+    //     redirect('/dashboard')
+    // }
     const handleChange = (event: { target: { name: any; value: string; }; }) => {
         const { name, value } = event.target;
         setFormData((prevData) => ({...prevData, [name]: value}))
@@ -44,9 +53,9 @@ export default function Login() {
         // formData.append('formData', formData);
         try {
             await authenticate(formData)
-            setTimeout(() => {
-                redirect('/')
-            }, 3000);
+                router.push('/dashboard')
+            // setTimeout(() => {
+            // }, 3000);
         } catch (err) {
             console.log(err)
         }
